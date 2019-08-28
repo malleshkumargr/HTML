@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script>
+            const rootHandle = document.getElementById('root');
+            const employees = [
+                {id: 1, name: 'ravi', empCode: '1001'},
+                {id: 2, name: 'suraj', empCode: '1003'},
+                {id: 3, name: 'divya', empCode: '1003'}
+            ];
+            const ulTag = document.createElement('ul');
+        
+            employees.forEach(function(employee){
+                const liTag = document.createElement('li');
+                liTag.innerHTML = `${employee.id}. ${employee.name} (${employee.empCode})`;
+                ulTag.appendChild(liTag);
+            });
+
+            rootHandle.appendChild(ulTag);
+            
+        </script>
+    </body>
+</html>

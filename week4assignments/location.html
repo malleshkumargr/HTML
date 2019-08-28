@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Location</title>
+    </head>
+    <body>
+        <script>
+            const xhr = new XMLHttpRequest();
+            const lat = 12.9998848;
+            const long = 77.553664;
+            const url = `https://api.darksky.net/forecast/cfe50176f06dea98ca479bde3b3f3d4c/${lat},${long}`
+            console.log(url);
+            xhr.open('GET', url)
+            xhr.send();
+
+            xhr.onload = function() {
+                const data = xhr.responseText;
+                console.log(data);
+          //      console.log(JSON.parse(data));
+
+            }
+        </script>
+    </body>
+</html>

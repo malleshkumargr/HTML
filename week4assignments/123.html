@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+        <main>
+                <div class="container">
+                  <div class="wrapper">
+                    <section id="quote">
+                    </section>
+                    <div class="button-wrapper">
+                      <button>Tweet this</button>
+                      <div id="author"></div>
+                      <button onclick="newQuote()">New quote</button>
+                    </div>
+                  </div>
+                </div>
+            </main>
+            <body>
+                <script>
+                    var newQuote = function() {
+                    //the script below is the same as above just inserted inside newQuote()
+                    var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1");
+xhr.send();
+  xhr.onreadystatechange = function () {
+    var DONE = 4; // readyState 4 means the request is done.
+    var OK = 200; // status 200 is a successful return.
+    if (xhr.readyState === DONE) {
+      if (xhr.status === OK) {
+        var json = JSON.parse(xhr.responseText);
+        var elQuote = document.getElementById("quote");
+        elQuote.innerHTML = json[0]["content"];
+        var elAuthor = document.getElementById("author");
+        elAuthor.innerHTML = json[0]["title"];
+        console.log(json[0]);
+      } else {
+        console.log("Error: " + xhr.status); // An error occurred during the request.
+      }
+    };
+  }
+}
+                </script>
+            </body>
+</html>

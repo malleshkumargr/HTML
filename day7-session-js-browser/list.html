@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script>
+            const rootHandle = document.getElementById('root');
+            const employees = ['rajeev', 'shabeer', 'rohit', 'aditya', 'rashmi', 'supriya', 'deepa', 'divkar'];
+            const h2Tag = document.createElement('h2');
+            h2Tag.innerHTML = `Listing Employees - ${employees.length}`;
+            rootHandle.appendChild(h2Tag);
+            const ulTag = document.createElement('ul');
+            employees.sort().reverse().forEach(function(name){
+                const liTag = document.createElement('li');
+                liTag.innerHTML = name.charAt(0).toUpperCase().concat(name.slice(1).toLowerCase());
+                ulTag.appendChild(liTag)
+            });
+            rootHandle.appendChild(ulTag);           
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+            <h2>Enter your name</h2>
+            <form id="myForm">
+                <label>username
+                    <input type="text" name="username" id="username"/>
+                </label>
+                <br/>
+                <input type="submit"/>
+            </form>
+            <h2 id="output"></h2>
+        </div>
+        <script>
+            const formHandle = document.getElementById('myForm');
+            const userNameHandle = document.getElementById('username');
+            const outputHandle = document.getElementById('output');
+            formHandle.addEventListener('submit', function(e){
+                e.preventDefault();
+                const username = userNameHandle.value;
+                const url = `https://gender-api.com/get?name=${username}&key=pRPLCejozFwCHFbVCR`;
+               // console.log(url);
+               const xhr = new XMLHttpRequest();
+               xhr.open('GET', url);
+               xhr.send();
+
+               xhr.onload = function() {
+                    const data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                    outputHandle.innerHTML = `Gender : ${data.gender.toUpperCase()}`;
+               }
+            });
+        </script>
+    </body>
+</html>

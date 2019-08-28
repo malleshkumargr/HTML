@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+            <ul id="list">
+
+            </ul>
+
+        </div>
+        <script>
+            //http methods - GET, POST, PUT, DELETE
+            const xhr = new XMLHttpRequest();
+            console.log(xhr);
+            xhr.open('GET','https://jsonplaceholder.typicode.com/users');
+            xhr.send();
+
+            xhr.onload = function() { //this function gets called when the data has been 
+                //successfully received from the server
+                //data comes back as JSON, which is string format,
+                //data from the server is indisde the responseText property
+                //we use JSON.parse() to convert JSON data to JS object
+                // const data = xhr.responseText
+                // console.log(typeof data) //'string'
+                //console.log(data)
+                //console.log(JSON.parse(data))
+
+                console.log(typeof xhr.responseText);
+                console.log(xhr.responseText);
+                const data = JSON.parse(xhr.responseText);
+                console.log(typeof data);
+                console.log(data);
+                console.log(data.length);
+                console.log(data.sort());
+
+                const ulTagHandle = document.getElementById('list');
+
+                // data.forEach(user => {
+                //     const names = user.name;
+                // });
+            
+                data.forEach(user => {
+                    const liTag = document.createElement('li');
+                    liTag.textContent = user.name;
+                    ulTagHandle.appendChild(liTag);
+                });
+
+            }
+
+            xhr.onerror = function(){
+                console.log('OOPS!! something went wrong', xhr.responseText)
+            }
+
+
+            
+
+
+
+            
+        </script>
+    </body>
+</html>

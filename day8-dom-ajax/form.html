@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+            <form id="myForm" action="./users.html">
+                <label>username
+                    <input type="text" name="username" id="username"/>
+            </label>
+            <br/>
+            <label for="email">email</label>
+            <input type="text" name="email" id="email"/>
+            <br/>
+            <label>password
+                <input type="password" name="password" id="password"/>
+            </label>
+            <br/>
+            <input type="submit"/>
+            </form>
+        </div>
+        <script>
+            const formHandle = document.getElementById('myForm');
+            formHandle.addEventListener('submit', function(e){
+                e.preventDefault();
+                //run validations
+                // if validations pass, submit form
+                //else
+                console.log('form was submitted');
+            });
+        </script>
+    </body>
+</html>

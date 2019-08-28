@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>word count</title>
+        <style>
+            textarea {
+              border:1.5px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root">
+            <h2>Word Count</h2>
+            <textarea rows="10" cols="100" id="inputTextArea"></textarea>
+            <p>You have written <b id="words">0 words</b> and <b id="chars">0 characters</b></p>
+        </div>
+        <script>
+            const inputTextAreaHandle =  document.getElementById("inputTextArea");
+            const wordsHandle = document.getElementById("words");
+            const charsHandle = document.getElementById("chars");
+            inputTextAreaHandle.addEventListener('keyup', function(){
+                const characterCount = inputTextAreaHandle.value.length;
+                const wordsCount = inputTextAreaHandle.value.split(' ').length;
+                if(characterCount !== 0) {
+                    wordsHandle.textContent = `${wordsCount} words`;
+                } else {
+                    wordsHandle.textContent = `${characterCount} words`;
+                }
+                charsHandle.textContent = `${characterCount} characters`;             
+            });
+        </script>
+    </body>
+</html>

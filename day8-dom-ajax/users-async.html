@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script>
+            //AJAX - Asynchronous JavaScript & XML
+            console.log('code before ajax');
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', '');
+            xhr.send();
+
+            console.log('code before onload function')
+            xhr.onload = function() {
+                console.log('data jsut recieved');
+                const data = JSON.parse(xhr.responseText)
+                console.log(data)
+            }
+
+            console.log('code after ajax response');
+            for(let i = 0; i < 10; i++) {
+                console.log(i);
+            }
+
+        </script>
+    </body>
+</html>

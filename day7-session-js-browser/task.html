@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task Manager</title>
+    </head>
+    <body>
+        <div id="root">
+            <ul id="list">
+            </ul>
+            <button id="btnAdd">Add Task</button>
+        </div>
+        <script>
+            const rootHandle = document.getElementById('root');
+            const listHandle = document.getElementById('list');
+            const btnAddHandle = document.getElementById('btnAdd');
+
+            btnAddHandle.addEventListener('click', function(){
+                const task = prompt('Enter task');
+                const liTag = document.createElement('li');
+                liTag.textContent = task;
+
+                const button = document.createElement('button');
+                button.textContent = 'remove';
+
+                button.addEventListener('click',function(){
+                    const confirm = window.confirm('Are you sure?');
+                    if(confirm) {
+                        listHandle.removeChild(liTag);
+                    }
+                });
+
+                liTag.appendChild(button);
+                listHandle.appendChild(liTag);
+            });
+            /*
+            window is the global object at the browser level
+            document is the property of window object.
+            it is possible to access window properties directly
+
+            */
+        </script>
+    </body>
+</html>

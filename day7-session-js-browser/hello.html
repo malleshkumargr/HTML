@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello</title>
+    </head>
+    <body>
+        <div id="msg">
+
+        </div>
+    <script>
+        const msgHandle = document.getElementById('msg');
+        const h1Tag = document.createElement('h1');
+        const msg = 'Hello World';
+        // const dctTag = document.createElement('dct);
+        // h1Tag.textContext = msg.toUpperCase()
+        h1Tag.innerHTML = msg.toUpperCase();
+        //console.log(h1Tag);
+        //console.dir(h1Tag);
+        msgHandle.appendChild(h1Tag);
+
+        //console.log(dctTag)
+    </script>
+    </body>
+</html>
